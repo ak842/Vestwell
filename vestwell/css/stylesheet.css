@@ -1,0 +1,18 @@
+
+.container {
+	padding: 20px;
+}
+
+#head {
+	font-size: 15px;
+}
+
+.table-wrapper {
+	border:5px;
+	border-style: solid;
+	border-color: lightgrey;
+	width: 90%;
+}
+#report td.larger {
+	font-size:20px;
+}
