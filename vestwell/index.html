@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vestwell Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src = "tablesorter/jquery.tablesorter.js"></script>
+	
+</head>
+<body>
+	<div class = "table-wrapper">
+		<table id = "report" class = "table table-striped">
+		<thead>
+			<tr id = "head" style = "font-size: 10px">
+				<th>Index</th>
+				<th>ID</th>
+				<th>Guid</th>
+				<th>isActive</th>
+				<th>Balance</th>
+				<th>Picture</th>
+				<th>Age</th>
+				<th>EyeColor</th>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Company</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Address</th>
+				<th>About</th>
+				<th>registered</th>
+				<th>Latitude</th>
+				<th>Longitude</th>
+				<th>Tags</th>
+				<th>Friends</th>
+				<th>Greetings</th>
+				<th>Favorite Fruit</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+		</table>
+
+
+		<script>
+			$.getJSON("data.json", function(json) {
+				var table;
+				for (var i = 0; i < json.length; i++) {
+					tr = $('<tr/>');
+					tr.append("<td style = 'font-size:10px;'>" + json[i].index + "</td>");
+					tr.append("<td style = 'font-size:4px;'>" + json[i]._id + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].guid + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].isActive + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].balance + "</td>");
+					tr.append("<td style = 'font-size:1px;'>" + json[i].picture + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].age + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].eyeColor + "</td>");
+					tr.append("<td style = 'font-size:10px;'>" + json[i].name + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].gender + "</td>");
+					tr.append("<td style = 'font-size:8px;'>" + json[i].company + "</td>");
+					tr.append("<td style = 'font-size:4px;'>" + json[i].email + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].phone + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].address + "</td>");
+					tr.append("<td style = 'font-size:3px;'>" + json[i].about + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].registered + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].latitude + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].longitude + "</td>");
+					tr.append("<td style = 'font-size:1px;'>" + json[i].tags + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].friends + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].greeting + "</td>");
+					tr.append("<td style = 'font-size:7px;'>" + json[i].favoriteFruit + "</td>");
+					$('table').append(tr);
+				}
+			    $(document).ready(function(){
+			    	$("#report td").click(function(){
+			    		$(this).css("font-size", 10 + "px");
+			    	})
+			    })
+
+			    $(document).ready(function(){
+			    	$("#report").tablesorter({ sortList: [[0,0], [1,0]] }); 
+			    })
+
+			    // $(document).ready(function(){
+			    // 	$("#report td").click(function(){
+			    // 		$(this).toggleClass("larger");
+			    // 	});
+			    // });
+
+
+			});
+		</script>
+	</div>
+	
+
+</body>
+</html>
